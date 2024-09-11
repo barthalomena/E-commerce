@@ -1,0 +1,285 @@
+[
+    {
+        "name": "Ultra HD 4K Television",
+        "price": 799.99,
+        "description": "Experience breathtaking visuals with this 55-inch 4K Ultra HD television.",
+        "ratings": "4.6",
+        "images": [
+            { "image": "tv_4k.jpg" },
+            { "image": "tv_side.jpg" }
+        ],
+        "category": "electronics",
+        "seller": "TechWorld",
+        "stock": 25,
+        "numberOfReviews": 50,
+        "reviews": [
+            {
+                "name": "Emily",
+                "rating": "5",
+                "comment": "Fantastic picture quality! Worth every penny."
+            },
+            {
+                "name": "Michael",
+                "rating": "4",
+                "comment": "Good TV, but the setup was a bit tricky."
+            }
+        ],
+        "createdAt": "2024-09-09T10:00:00Z"
+    },
+    {
+        "name": "Noise-Cancelling Wireless Headphones",
+        "price": 149.99,
+        "description": "Premium headphones with active noise cancellation and a long battery life.",
+        "ratings": "4.7",
+        "images": [
+            { "image": "headphones1.jpg" }
+        ],
+        "category": "Headphones",
+        "seller": "AudioTech",
+        "stock": 40,
+        "numberOfReviews": 80,
+        "reviews": [
+            {
+                "name": "Sarah",
+                "rating": "5",
+                "comment": "Amazing sound quality and noise cancellation!"
+            },
+            {
+                "name": "James",
+                "rating": "4",
+                "comment": "Very good, but a bit bulky."
+            }
+        ],
+        "createdAt": "2024-09-08T12:00:00Z"
+    },
+    {
+        "name": "Organic Almond Butter",
+        "price": 6.99,
+        "description": "Smooth and creamy almond butter made from 100% organic almonds.",
+        "ratings": "4.8",
+        "images": [
+            { "image": "almond_butter.jpg" }
+        ],
+        "category": "Food",
+        "seller": "NutriFoods",
+        "stock": 100,
+        "numberOfReviews": 65,
+        "reviews": [
+            {
+                "name": "Olivia",
+                "rating": "5",
+                "comment": "Delicious and healthy. Perfect for my morning toast."
+            },
+            {
+                "name": "Liam",
+                "rating": "4",
+                "comment": "Great taste but a bit expensive."
+            }
+        ],
+        "createdAt": "2024-09-07T14:00:00Z"
+    },
+    {
+        "name": "Leather Wallet",
+        "price": 29.99,
+        "description": "Stylish leather wallet with multiple card slots and a coin pocket.",
+        "ratings": "4.4",
+        "images": [
+            { "image": "wallet_leather.jpg" }
+        ],
+        "category": "Accessories",
+        "seller": "WalletPro",
+        "stock": 60,
+        "numberOfReviews": 30,
+        "reviews": [
+            {
+                "name": "Grace",
+                "rating": "4",
+                "comment": "Nice quality but the color was different from the picture."
+            }
+        ],
+        "createdAt": "2024-09-06T15:00:00Z"
+    },
+    {
+        "name": "Smartphone with Triple Camera",
+        "price": 299.99,
+        "description": "Feature-packed smartphone with a triple camera system and 128GB storage.",
+        "ratings": "4.5",
+        "images": [
+            { "image": "smartphone_triple_camera.jpg" }
+        ],
+        "category": "mobile phones",
+        "seller": "PhoneMart",
+        "stock": 20,
+        "numberOfReviews": 75,
+        "reviews": [
+            {
+                "name": "Ethan",
+                "rating": "5",
+                "comment": "Excellent phone with a great camera."
+            },
+            {
+                "name": "Ava",
+                "rating": "4",
+                "comment": "Very good phone, but the battery life could be better."
+            }
+        ],
+        "createdAt": "2024-09-05T16:00:00Z"
+    },
+    {
+        "name": "Eco-Friendly Yoga Mat",
+        "price": 34.99,
+        "description": "Durable and non-slip yoga mat made from eco-friendly materials.",
+        "ratings": "4.7",
+        "images": [
+            { "image": "yoga_mat.jpg" }
+        ],
+        "category": "Sports",
+        "seller": "SportyLife",
+        "stock": 30,
+        "numberOfReviews": 40,
+        "reviews": [
+            {
+                "name": "Sophia",
+                "rating": "5",
+                "comment": "Perfect grip and very comfortable."
+            }
+        ],
+        "createdAt": "2024-09-04T18:00:00Z"
+    },
+    {
+        "name": "Fantasy Novel: The Lost Kingdom",
+        "price": 15.99,
+        "description": "An epic fantasy novel that will transport you to a magical world.",
+        "ratings": "4.6",
+        "images": [
+            { "image": "fantasy_novel.jpg" }
+        ],
+        "category": "Books",
+        "seller": "BookLovers",
+        "stock": 45,
+        "numberOfReviews": 55,
+        "reviews": [
+            {
+                "name": "Lucas",
+                "rating": "5",
+                "comment": "An incredible story with vivid world-building."
+            },
+            {
+                "name": "Mia",
+                "rating": "4",
+                "comment": "Enjoyed the book, but the ending felt rushed."
+            }
+        ],
+        "createdAt": "2024-09-03T19:00:00Z"
+    },
+    {
+        "name": "Compact Home Gym Set",
+        "price": 199.99,
+        "description": "All-in-one gym set for strength training and cardio exercises.",
+        "ratings": "4.8",
+        "images": [
+            { "image": "home_gym.jpg" }
+        ],
+        "category": "Outdoor",
+        "seller": "FitnessGear",
+        "stock": 10,
+        "numberOfReviews": 25,
+        "reviews": [
+            {
+                "name": "Noah",
+                "rating": "5",
+                "comment": "Great for home workouts. Very versatile."
+            }
+        ],
+        "createdAt": "2024-09-02T20:00:00Z"
+    },
+    {
+        "name": "Wireless Bluetooth Speaker",
+        "price": 89.99,
+        "description": "Portable Bluetooth speaker with high-quality sound and waterproof design.",
+        "ratings": "4.7",
+        "images": [
+            { "image": "bluetooth_speaker.jpg" }
+        ],
+        "category": "Accessories",
+        "seller": "SoundWave",
+        "stock": 50,
+        "numberOfReviews": 70,
+        "reviews": [
+            {
+                "name": "Isabella",
+                "rating": "5",
+                "comment": "Excellent sound quality and very durable."
+            },
+            {
+                "name": "Oliver",
+                "rating": "4",
+                "comment": "Great speaker, but it could use more bass."
+            }
+        ],
+        "createdAt": "2024-09-01T21:00:00Z"
+    },
+    {
+        "name": "Classic Leather Jacket",
+        "price": 199.99,
+        "description": "Timeless leather jacket that combines style with durability.",
+        "ratings": "4.5",
+        "images": [
+            { "image": "leather_jacket.jpg" }
+        ],
+        "category": "Clothes/Shoes",
+        "seller": "FashionHub",
+        "stock": 20,
+        "numberOfReviews": 40,
+        "reviews": [
+            {
+                "name": "Ella",
+                "rating": "5",
+                "comment": "A must-have piece for any wardrobe. Excellent quality."
+            }
+        ],
+        "createdAt": "2024-08-31T22:00:00Z"
+    },
+    {
+        "name": "Smart Thermostat",
+        "price": 129.99,
+        "description": "Energy-saving smart thermostat that adjusts to your lifestyle.",
+        "ratings": "4.6",
+        "images": [
+            { "image": "thermostat.jpg" }
+        ],
+        "category": "Home",
+        "seller": "HomeSmart",
+        "stock": 35,
+        "numberOfReviews": 60,
+        "reviews": [
+            {
+                "name": "Daniel",
+                "rating": "5",
+                "comment": "Easy to install and saves on energy bills."
+            }
+        ],
+        "createdAt": "2024-08-30T23:00:00Z"
+    },
+    {
+        "name": "Gourmet Coffee Beans",
+        "price": 12.99,
+        "description": "Premium coffee beans sourced from the finest plantations.",
+        "ratings": "4.9",
+        "images": [
+            { "image": "coffee_beans.jpg" }
+        ],
+        "category": "Food",
+        "seller": "BrewMasters",
+        "stock": 80,
+        "numberOfReviews": 90,
+        "reviews": [
+            {
+                "name": "Zoe",
+                "rating": "5",
+                "comment": "Best coffee beans I’ve ever had!"
+            }
+        ],
+        "createdAt": "2024-08-29T12:00:00Z"
+    }
+]
