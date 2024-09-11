@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"npx nodemon backend/server.js",
     "dev":"set NODE_ENV = devlopment && npx nodemon backend/server.js ",
-    "prod":"set NODE_ENV = production && npx nodemon backend/server.js "
-
+    "prod":"set NODE_ENV = production && npx nodemon backend/server.js ",
+"seeder":"node backend/utils/seeder.js"
 
   },
   "repository": {
