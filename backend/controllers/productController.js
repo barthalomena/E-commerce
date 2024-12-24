@@ -5,7 +5,11 @@ const APIfeatures = require("../utils/apiFeatures");
 
 //get products -- api/v1/products
 exports.getProducts = catchAsyncError(async (req, res, next) => {
-  const searchKeyword = new APIfeatures(Product.find(), req.query).search(); // searching
+    const pagination = 2;
+  const searchKeyword = new APIfeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    .paginate(pagination); // searching
 
   const products = await searchKeyword.query;
   res.status(200).json({
@@ -38,7 +42,7 @@ exports.getSingleproduct = catchAsyncError(async (req, res, next) => {
 });
 
 //update product {{base_url}}/api/v1/product/
-exports.updateproduct = async (req, res, next) => {
+exports.updateproduct = catchAsyncError(async (req, res, next) => {
   let product = Product.findById(req.params.id);
   if (!product) {
     return res.status(404).json({
@@ -54,10 +58,10 @@ exports.updateproduct = async (req, res, next) => {
     success: true,
     product,
   });
-};
+});
 
 //delete product
-exports.deleteproduct = async (req, res, next) => {
+exports.deleteproduct = catchAsyncError(async (req, res, next) => {
   const products = await Product.findById(req.params.id);
   if (!products) {
     return res.status(404).json({
@@ -71,4 +75,4 @@ exports.deleteproduct = async (req, res, next) => {
     success: true,
     message: "Product deleted!",
   });
-};
+});
