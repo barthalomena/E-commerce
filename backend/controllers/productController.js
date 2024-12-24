@@ -26,8 +26,8 @@ res.status(201).json(
 })
 
 //get single products  {{base_url}}/api/v1/product/
-exports.getSingleproduct=async(req,res,next)=>{
-    try{
+exports.getSingleproduct=catchAsyncError(async(req,res,next)=>{
+    
    const product = await Product.findById(req.params.id)
 if(!product){
     return    next(new  errorHandler('product not found', 400)  )
@@ -37,13 +37,7 @@ if(!product){
         product
     })
 }
-}catch(error){ 
-           res.status(500).json({
-    success: false,
-    message: error.message
-});
-}
-}
+})
 
 //update product {{base_url}}/api/v1/product/
 exports.updateproduct=async(req,res,next) =>{
