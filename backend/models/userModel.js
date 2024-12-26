@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter password"],
     minlength: [6, "Password must be at least 6 characters long"], // Updated the message
+    select: false,
   },
   avatar: {
     type: String,
@@ -46,6 +47,11 @@ userSchema.methods.getECOMToken = function () {
     expiresIn: process.env.JWT_EXPIRES_TIME,
   });
 };
+// is valida user function
+userSchema.methods.isValidPassword =async function(getPassword){
+return await bcrypt.compare(getPassword,this.password)
+}
+
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
