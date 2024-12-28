@@ -23,7 +23,24 @@ module.exports = (err, req, res, next) => {
       message = `Resource Not Found: ${err.path}`;
       error = new ErrorHandler(message);
     }
+    //duplicate error
+if(err.code==11000){
+  let message = `Duplicate ${Object.keys(err.keyValue)} error`
+  error = new ErrorHandler(message);
 
+}
+//jsonwebtoke error
+if(err.code=='JSONWebTokenError'){
+  let message = `JSON Web Token is invalid try again`
+  error = new ErrorHandler(message);
+
+}
+//Token expire  error
+if(err.code=='TokenExpiredError'){
+  let message = `JSON Web Token is Expired try again`
+  error = new ErrorHandler(message);
+
+}
     res.status(err.statuscode).json({
       success: false,
       message: error.message || "Internal server Error",
