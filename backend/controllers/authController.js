@@ -1,8 +1,7 @@
 const catchAsyncError = require("../middelewares/catchAsyncError");
 const User = require("../models/userModel");
 const ErrorHandler = require("../utils/errorHandler");
-const sendToken = require('../utils/ecom')
-
+const sendToken = require("../utils/ecom");
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
   const { name, email, password, avatar } = req.body;
@@ -16,8 +15,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
 
   const token = user.getECOMToken();
 
-  sendToken(user,201,res)
-
+  sendToken(user, 201, res);
 });
 
 exports.loginUser = catchAsyncError(async (req, res, next) => {
@@ -28,16 +26,21 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   }
   //    finding User
   const user = await User.findOne({ email }).select("+password");
-if(!user){
+  if (!user) {
     return next(new ErrorHandler("Invalid Email and Password", 401));
-
-}
-// password check
-if(! await user.isValidPassword(password)){
+  }
+  // password check
+  if (!(await user.isValidPassword(password))) {
     return next(new ErrorHandler("Invalid Email and Password", 401));
+  }
 
-}
-
-sendToken(user,201,res)
-
+  sendToken(user, 201, res);
 });
+exports.logoutUser = (req, res, next) => {
+  res
+    .cookie("token", null, {
+      expires: new Date(Date.now()),
+      httpOnly: true,
+    })
+    .status(200).json({ success: true, message: "Logged Out" });
+};
