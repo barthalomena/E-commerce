@@ -1,7 +1,10 @@
 const catchAsyncError = require("../middelewares/catchAsyncError");
 const User = require("../models/userModel");
+const {resetPasswordGenerate} = require("../models/userModel");
+
 const ErrorHandler = require("../utils/errorHandler");
 const sendToken = require("../utils/ecom");
+const sendEmail = require("../utils/email");
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
   const { name, email, password, avatar } = req.body;
@@ -42,5 +45,35 @@ exports.logoutUser = (req, res, next) => {
       expires: new Date(Date.now()),
       httpOnly: true,
     })
-    .status(200).json({ success: true, message: "Logged Out" });
+    .status(200)
+    .json({ success: true, message: "Logged Out" });
 };
+exports.forgotPassword = catchAsyncError(async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    return next(new ErrorHandler("user not found", 404));
+  }
+
+  const resetToken = user.getresetToken();
+  await user.save({ validateBeforeSave: false });
+
+  const resetURL = `${req.protocol}://${req.get(
+    "host"
+  )}/api/v1/passwoed/rest/${resetToken}`;
+
+  const message = `Your password reset url is as follows \n \n ${resetURL} \n\n if You have not requested this email, then ignore it. `;
+  try {
+    sendEmail({
+      email:user.email,
+      subject:"ECOM password recovery",
+      message
+    })
+    res.status(200).json({success:true,message:`Email sent to ${user.email}`})
+  } catch (error) {
+    user.resetPassword = undefined;
+    user.resetPasswordExpire = undefined;
+  await user.save({validateBeforeSave:false})
+  return next(new ErrorHandler(error.message),500)
+  }
+});
