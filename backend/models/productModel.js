@@ -77,6 +77,7 @@ maxLength:[500,"Product name cannot exceed charcters"]
             }
         }
       ],
+      user:{type:mongoose.Schema.Types.ObjectId},
       createdAt:{
         type:Date,
 default:Date.now
