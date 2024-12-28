@@ -1,7 +1,7 @@
 const catchAsyncError = require("../middelewares/catchAsyncError");
 const User = require("../models/userModel");
 const {resetPasswordGenerate} = require("../models/userModel");
-
+const crypto = require('crypto')
 const ErrorHandler = require("../utils/errorHandler");
 const sendToken = require("../utils/ecom");
 const sendEmail = require("../utils/email");
@@ -60,7 +60,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
 
   const resetURL = `${req.protocol}://${req.get(
     "host"
-  )}/api/v1/passwoed/rest/${resetToken}`;
+  )}/api/v1/password/reset/${resetToken}`;
 
   const message = `Your password reset url is as follows \n \n ${resetURL} \n\n if You have not requested this email, then ignore it. `;
   try {
@@ -77,3 +77,27 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   return next(new ErrorHandler(error.message),500)
   }
 });
+
+exports.resetPassword=catchAsyncError(async(req,res,next)=>{
+const resetPassword =  crypto.createHash('sha256').update(req.params.token ).digest('hex')
+const user = await User.findOne({
+  resetPassword,
+  resetPasswordExpire:{
+    $gt:Date.now()
+  }
+})
+if(!user){return next(new ErrorHandler('password rest token is invalid or expired'))}
+
+if(req.body.password !== req.body.confirmPassword){
+  return next(new ErrorHandler('password not matching with confirm password'))
+
+}
+user.password=req.body.password
+user.resetPassword=undefined
+user.resetPasswordExpire=undefined
+
+await user.save({validateBeforeSave:false})
+
+sendToken(user,201,res)
+
+})
